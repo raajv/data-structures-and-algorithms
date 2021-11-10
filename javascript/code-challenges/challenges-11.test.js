@@ -34,8 +34,8 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   let count =0;
-  if(input.includes(target)){
-      count++;
+  if(input.map(prop=>prop.includes(target))){
+    count++;
   }
   return count;
 };
@@ -68,9 +68,13 @@ This function should then raise 2 to the power of the resulting numbers, returni
 For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
-const divisibleByFiveTwoToThePower = (input) => {
-  
-};
+const divisibleByFiveTwoToThePower = input => 
+  input.map((arr)=>arr
+    .filter((numb) => (typeof numb === 'number' && numb % 5 === 0 ? true : false))
+    .map((numb) => Math
+      .pow(2, numb))
+  );
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -134,9 +138,13 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-let findMaleAndFemale = (data) => {
-  // Solution code here...
-};
+let findMaleAndFemale = data => 
+  data
+    .filter((person) => person.gender === 'male' || person.gender === 'female')
+      .map((person) => person.name)
+      .join(' and ');
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
