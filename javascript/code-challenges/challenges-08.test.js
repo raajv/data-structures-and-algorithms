@@ -54,11 +54,16 @@ let characters = [
   }
 ];
 
-const sortByChildren = (charArray) => {
-  charArray.sort(a,b)=>{
-    return b.children -c.children
-  })
-};
+const sortByChildren = (charArray) => 
+  charArray.sort((a,b) => {
+    if(b.children.length !== a.children.length){
+      return a.children.length - b.children.length;
+    }else{
+      return b.house.toUpperCase() - a.house.toUpperCase();
+    }
+  }
+  );
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -100,9 +105,9 @@ Write a function named containsWorld that takes in a string or number of any len
 
 ------------------------------------------------------------------------------------------------ */
 
-const containsWorld = (input) => {
-  // Solution code here...
-};
+const containsWorld = (input) => 
+  /world/g.test(input);
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -122,9 +127,9 @@ CHALLENGE 6
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 
-const citiesAtoJ = (arr) => {
+const citiesAtoJ = (arr) => 
   // Solution code here...
-};
+  arr.match(/A-J/g.test(arr));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
