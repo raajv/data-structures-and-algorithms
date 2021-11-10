@@ -36,8 +36,8 @@ Write a function named removeThree that takes an index and an array. The functio
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
- return arr.splice(idx,3);
- 
+  arr.splice(idx,3);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ Write a function named joinArray that takes an array and joins all of the elemen
 ------------------------------------------------------------------------------------------------ */
 
 const joinArray = (arr) => {
-  return arr.join('');
+  return arr.join(' ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ const howMuchPencil = (str) => {
   let result = [];
   for(let i = 0; i<=str.length;i++){
     result.push(str.slice([i],[str.length]));
-}
+  }
 
   return result;
 };
@@ -127,7 +127,12 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
+
+  recipe.ingredients.forEach(thing=>
+    result.push(thing.split(' ').slice(2).join(' ')));
+
   recipe.slice;
+
   return result;
 };
 
